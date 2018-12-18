@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Madlibs</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=B612+Mono|Bungee+Shade|Cutive+Mono|IM+Fell+DW+Pica+SC|Poppins|Share+Tech+Mono|VT323" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+</head>
+<body><div class="container">
+    <h1>La folle histoire</h1>
+
+    <form id="story-form">
+
+      <div class="form-section">
+        <label for="country">Pays:</label>
+        <input type="text" id="country" placeholder="Zimbabwe">
+      </div>
+
+      <div class="form-section">
+        <label for="character">Personnage:</label>
+        <input type="text" id="character" placeholder="Elon Musk">
+      </div>
+
+      <div class="form-section">
+        <label for="accessory">Accessoire vestimentaire:</label>
+        <input type="text" id="accessory" placeholder="un chapeau">
+      </div>
+
+      <div class="form-section">
+        <label for="home">Endroit dans la maison:</label>
+        <input type="text" id="home" placeholder="le grenier">
+      </div>
+
+      <div class="form-section">
+        <label for="animal">Animal:</label>
+        <input type="text" id="animal" placeholder="le loup">
+      </div>
+
+      <div class="form-section">
+        <label for="object-first">Un objet (au pluriel, sans article):</label>
+        <input type="text" id="object-first" placeholder="couvertures">
+      </div>
+
+      <div class="form-section">
+        <label for="object-second">Un autre objet (au pluriel, sans article):</label>
+        <input type="text" id="object-second" placeholder="toitures">
+      </div>
+
+      <div class="form-section">
+        <label for="date">Chiffre entre 1 et 31:</label>
+        <input type="number" id="date" min="0" max="31" step="1" value="8">
+      </div>
+
+      <div class="form-section">
+        <label for="month">Mois de l'année:</label>
+        <input type="text" id="month" placeholder="mai">
+      </div>
+
+      <div class="form-section">
+        <input type="button" id="submit" value="Raconte-moi une histoire!" class="red-button">
+      </div>
+    </form>
+
+    <div id="output"></div>
+  </div>
+  <script>
+    function createStory() {
+      const submitButton = document.getElementById("submit");
+      const form = document.getElementById('story-form');
+      const output = document.getElementById('output');
+
+      const country = document.getElementById('country');
+      const character = document.getElementById('character');
+      const accessory = document.getElementById('accessory');
+      const home = document.getElementById('home');
+      const animal = document.getElementById('animal');
+      const objectFirst = document.getElementById('object-first');
+      const objectSecond = document.getElementById('object-second');
+      const date = document.getElementById('date');
+      const month = document.getElementById('month');
+
+      const story = `Dans quelques pays (Belgique, Luxembourg, <strong>${country.value}</strong>), le père Noël n'a jamais réussi à détrôner <strong>${character.value}</strong>. C'est donc le 6 décembre, que les enfants reçoivent la plupart de leurs cadeaux, dans <strong>${accessory.value}</strong>, disposés près de <strong>${home.value}</strong>. Les enfants laissent aussi des <strong>${objectFirst.value}</strong> pour <strong>${animal.value}</strong> de Saint Nicolas. Ils reçoivent beaucoup de friandises et de <strong>${objectSecond.value}</strong>. Mais Noël se fête de plus en plus souvent. Les <strong>${objectSecond.value}</strong> sont alors distribués le soir du <strong>${date.value}</strong> <strong>${month.value}</strong>, au réveillon.`
+
+      form.style.display = 'none';
+
+      output.innerHTML = story;
+      output.insertAdjacentHTML('beforeend', '<br><br><br><a href="index.html" class="red-button">ENCORE!</a>');
+    };
+
+    const submitButton = document.getElementById("submit");
+    submitButton.addEventListener("click", createStory);
+  </script>
+</body>
+</html>
